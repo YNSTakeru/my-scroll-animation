@@ -1,5 +1,7 @@
 import * as THREE from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
+import chairSrc from "./glb/chair.glb?url";
+import deskSrc from "./glb/desk.glb?url";
 import bg from "./images/bg.jpeg";
 import "./style.css";
 
@@ -39,8 +41,7 @@ const group = new THREE.Group();
 
 // glbファイルの読み込み
 const loader = new GLTFLoader();
-loader.setPath("./glb/");
-loader.load("chair.glb", (obj) => {
+loader.load(chairSrc, (obj) => {
   chair = obj.scene;
   chair.traverse((child) => {
     if (child.isMesh) {
@@ -52,7 +53,7 @@ loader.load("chair.glb", (obj) => {
   group.add(chair);
 });
 
-loader.load("desk.glb", (obj) => {
+loader.load(deskSrc, (obj) => {
   desk = obj.scene;
   desk.traverse((child) => {
     if (child.isMesh) {
