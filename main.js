@@ -38,7 +38,7 @@ const group = new THREE.Group();
 
 // glbファイルの読み込み
 const loader = new GLTFLoader();
-loader.setPath("./models/");
+loader.setPath("./glb/");
 loader.load("chair.glb", (obj) => {
   chair = obj.scene;
   chair.traverse((child) => {
